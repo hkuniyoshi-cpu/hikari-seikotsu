@@ -225,13 +225,13 @@ h3 { font-size: clamp(16px, 2vw, 20px);   font-weight: 700; }
   position: absolute; inset: 0;
   background-size: cover; background-position: center;
   opacity: 0; z-index: 0;
-  transition: opacity 1.8s ease;
+  transition: opacity 1.0s ease;
 }
 .hero-photo-bg.visible { opacity: 1; }
 .hero-photo-bg::after {
   content: '';
   position: absolute; inset: 0;
-  background: linear-gradient(135deg, rgba(255,112,67,0.45) 0%, rgba(255,154,108,0.32) 50%, rgba(255,183,77,0.28) 100%);
+  background: linear-gradient(135deg, rgba(255,112,67,0.20) 0%, rgba(255,154,108,0.14) 50%, rgba(255,183,77,0.10) 100%);
 }
 .hero-blob {
   position: absolute; border-radius: 50%; pointer-events: none;
