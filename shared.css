@@ -97,6 +97,7 @@ h3 { font-size: clamp(16px, 2vw, 20px);   font-weight: 700; }
 .sec-head { text-align: center; margin-bottom: 52px; }
 .sec-head--light .section-title,
 .sec-head--light .eyebrow { color: #fff; }
+.sec-head--light .section-title .hi { color: var(--sun-lt); }
 
 .eyebrow {
   display: inline-block; font-family: 'Nunito', sans-serif; font-weight: 700;
