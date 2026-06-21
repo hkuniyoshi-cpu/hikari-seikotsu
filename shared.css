@@ -221,6 +221,13 @@ h3 { font-size: clamp(16px, 2vw, 20px);   font-weight: 700; }
   background: linear-gradient(135deg, #FF7043 0%, #FF9A6C 50%, #FFB74D 100%);
   display: flex; align-items: center; padding-top: 68px; overflow: hidden;
 }
+.hero-photo-bg {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  opacity: 0; z-index: 0;
+  transition: opacity 1.8s ease;
+}
+.hero-photo-bg.visible { opacity: 0.22; }
 .hero-blob {
   position: absolute; border-radius: 50%; pointer-events: none;
 }
@@ -438,6 +445,7 @@ h3 { font-size: clamp(16px, 2vw, 20px);   font-weight: 700; }
 }
 .foryou-card:hover { border-color: var(--coral-lt); transform: translateY(-3px); box-shadow: var(--shadow-md); }
 .foryou-icon { font-size: 36px; margin-bottom: 14px; display: block; }
+.foryou-label { display: block; font-size: 15px; font-weight: 700; color: var(--coral); margin-bottom: 8px; line-height: 1.5; }
 .foryou-card p { font-size: 13.5px; color: var(--ink-soft); line-height: 1.75; }
 
 /* ============================================================
