@@ -602,33 +602,39 @@ function applySettings(s) {
 
 function applyHero(h) {
   if (!h) return;
-  // subLines: first line updates heroSub text
   if (Array.isArray(h.subLines) && h.subLines[0]) {
-    const el = document.getElementById('heroSub');
+    var el = document.getElementById('heroSub');
     if (el) el.textContent = h.subLines[0];
   }
-  // photos: background slideshow via heroPhotoBg
-  const photos = Array.isArray(h.photos) ? h.photos.filter(function(p) { return p.image; }) : [];
+  var photos = Array.isArray(h.photos) ? h.photos.filter(function(p) { return p.image; }) : [];
   if (!photos.length) return;
-  const bg = document.getElementById('heroPhotoBg');
+  var bg = document.getElementById('heroPhotoBg');
   if (!bg) return;
-  const urls = photos.map(function(p) { return driveImg(p.image); }).filter(Boolean);
+  var urls = photos.map(function(p) { return driveImg(p.image); }).filter(Boolean);
   if (!urls.length) return;
+
+  bg.innerHTML = '<div class="hero-slide" id="heroSlide0"></div><div class="hero-slide" id="heroSlide1"></div>';
+  var slides = [document.getElementById('heroSlide0'), document.getElementById('heroSlide1')];
+  var cur = 0;
   var idx = 0;
-  function showPhoto(url) {
+
+  function showSlide(url) {
+    var next = 1 - cur;
     var img = new Image();
     img.onload = function() {
-      bg.style.backgroundImage = 'url("' + url + '")';
-      bg.classList.add('visible');
+      slides[next].style.backgroundImage = 'url("' + url + '")';
+      slides[next].classList.add('active');
+      slides[cur].classList.remove('active');
+      cur = next;
     };
     img.src = url;
   }
-  showPhoto(urls[0]);
+
+  showSlide(urls[0]);
   if (urls.length > 1) {
     setInterval(function() {
       idx = (idx + 1) % urls.length;
-      bg.classList.remove('visible');
-      setTimeout(function() { showPhoto(urls[idx]); }, 1100);
+      showSlide(urls[idx]);
     }, 5000);
   }
 }
