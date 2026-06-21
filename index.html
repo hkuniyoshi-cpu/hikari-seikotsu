@@ -7,7 +7,7 @@
 <title>ひかり整骨院 | 産後ケア・骨盤矯正 | 沖縄県豊見城市</title>
 <meta name="description" content="豊見城市の整骨院。産後ケア・骨盤矯正・肩こり・腰痛に対応。子連れOK・お子様歓迎。まずはお気軽にご相談を。TEL 098-987-1870">
 <link rel="canonical" href="https://hikari-seikotsu.search-mania.net/">
-<link rel="icon" type="image/svg+xml" href="./favicon.svg">
+<link rel="icon" type="image/png" href="./logo.png">
 <meta http-equiv="content-language" content="ja">
 
 <!-- OGP -->
@@ -88,24 +88,7 @@
 <nav id="nav">
   <div class="nav-inner">
     <a class="brand" href="/">
-      <svg class="brand-sun" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <circle cx="20" cy="20" r="18" fill="#FF7043"/>
-        <g stroke="#FFF5E0" stroke-width="2" stroke-linecap="round">
-          <line x1="20" y1="4"  x2="20" y2="9"/>
-          <line x1="20" y1="31" x2="20" y2="36"/>
-          <line x1="4"  y1="20" x2="9"  y2="20"/>
-          <line x1="31" y1="20" x2="36" y2="20"/>
-          <line x1="7.5"  y1="7.5"  x2="11.3" y2="11.3"/>
-          <line x1="28.7" y1="28.7" x2="32.5" y2="32.5"/>
-          <line x1="32.5" y1="7.5"  x2="28.7" y2="11.3"/>
-          <line x1="11.3" y1="28.7" x2="7.5"  y2="32.5"/>
-        </g>
-        <circle cx="20" cy="20" r="7" fill="#FFF5E0"/>
-      </svg>
-      <div class="brand-text">
-        <span class="ja">ひかり整骨院</span>
-        <span class="en">HIKARI SEIKOTSUIN</span>
-      </div>
+      <img src="./logo.png" class="brand-logo-img" alt="ひかり整骨院" width="120" height="40">
     </a>
     <button class="nav-toggle" aria-label="メニューを開く" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -315,6 +298,9 @@
       <div class="review-skel"></div>
       <div class="review-skel"></div>
     </div>
+    <div class="reviews-more-wrap">
+      <a id="reviewsMoreBtn" class="btn-reviews-more" href="#" target="_blank" rel="noopener">Googleのクチコミをもっとみる →</a>
+    </div>
   </div>
   <div class="wave-bottom" aria-hidden="true">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" preserveAspectRatio="none">
@@ -474,17 +460,7 @@
     <div class="footer-top">
       <div class="footer-brand">
         <div class="footer-logo">
-          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" width="36" height="36" aria-hidden="true">
-            <circle cx="20" cy="20" r="18" fill="#FF7043"/>
-            <g stroke="#FFF5E0" stroke-width="2" stroke-linecap="round">
-              <line x1="20" y1="4"  x2="20" y2="9"/>
-              <line x1="20" y1="31" x2="20" y2="36"/>
-              <line x1="4"  y1="20" x2="9"  y2="20"/>
-              <line x1="31" y1="20" x2="36" y2="20"/>
-            </g>
-            <circle cx="20" cy="20" r="7" fill="#FFF5E0"/>
-          </svg>
-          <span>ひかり整骨院</span>
+          <img src="./logo.png" class="footer-logo-img" alt="ひかり整骨院" width="120" height="40">
         </div>
         <address>
           <p id="footerAddress">沖縄県豊見城市宜保3-5-8ひまわりハウス101</p>
@@ -597,6 +573,16 @@ function applySettings(s) {
   const pl = document.getElementById('partnerLink');
   if (pl && s.officialUrl) pl.href = s.officialUrl;
   if (s.tagline) { const sub = document.getElementById('heroSub'); if (sub) sub.textContent = s.tagline; }
+  if (s.gbpUrl) {
+    var gbpUrl = s.gbpUrl.trim();
+    if (gbpUrl.startsWith('<')) {
+      var m = gbpUrl.match(/src="([^"]+)"/);
+      gbpUrl = m ? m[1] : '#';
+    }
+    s.gbpUrl = gbpUrl;
+    var moreBtn = document.getElementById('reviewsMoreBtn');
+    if (moreBtn && gbpUrl !== '#') moreBtn.href = gbpUrl;
+  }
   document.querySelectorAll('a[href^="tel:"]').forEach(a => { if (a.id !== 'footerTel') a.href = 'tel:' + tel.replace(/[-\s]/g,''); });
 }
 
