@@ -619,14 +619,21 @@ function applyHero(h) {
   }
 }
 
-function applyAbout(items) {
-  if (!Array.isArray(items) || !items.length) return;
-  const paras  = items.filter(i => i.type === 'para');
-  const quotes = items.filter(i => i.type === 'quote');
-  const photos = items.filter(i => i.type === 'photo' && i.image);
-  if (paras.length) { const el = document.getElementById('aboutParas'); if (el) el.innerHTML = paras.map(p=>`<p>${esc(p.text)}</p>`).join(''); }
-  if (quotes.length) { const el = document.getElementById('aboutQuote'); if (el) { el.textContent = quotes[0].text; el.style.display=''; } }
-  if (photos.length) { const el = document.getElementById('aboutPhoto'); if (el) el.innerHTML = `<img src="${esc(driveImg(photos[0].image))}" alt="ひかり整骨院" loading="lazy" class="about-img">`; }
+function applyAbout(a) {
+  if (!a) return;
+  if (Array.isArray(a.paragraphs) && a.paragraphs.length) {
+    const el = document.getElementById('aboutParas');
+    if (el) el.innerHTML = a.paragraphs.map(function(p) { return '<p>' + esc(p) + '</p>'; }).join('');
+  }
+  if (a.quote) {
+    const el = document.getElementById('aboutQuote');
+    if (el) { el.textContent = a.quote; el.style.display = ''; }
+  }
+  const photos = Array.isArray(a.photos) ? a.photos.filter(function(p) { return p.image; }) : [];
+  if (photos.length) {
+    const el = document.getElementById('aboutPhoto');
+    if (el) el.innerHTML = '<img src="' + esc(driveImg(photos[0].image)) + '" alt="ひかり整骨院" loading="lazy" class="about-img">';
+  }
 }
 
 function applyMenu(items) {
