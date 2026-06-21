@@ -218,7 +218,7 @@ h3 { font-size: clamp(16px, 2vw, 20px);   font-weight: 700; }
    ============================================================ */
 .hero {
   position: relative; min-height: 100svh;
-  background: linear-gradient(135deg, #FF7043 0%, #FF9A6C 50%, #FFB74D 100%);
+  background: linear-gradient(135deg, #c84020 0%, #d06030 100%);
   display: flex; align-items: center; padding-top: 68px; overflow: hidden;
 }
 .hero-photo-bg {
@@ -227,7 +227,12 @@ h3 { font-size: clamp(16px, 2vw, 20px);   font-weight: 700; }
   opacity: 0; z-index: 0;
   transition: opacity 1.8s ease;
 }
-.hero-photo-bg.visible { opacity: 0.22; }
+.hero-photo-bg.visible { opacity: 1; }
+.hero-photo-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(255,112,67,0.45) 0%, rgba(255,154,108,0.32) 50%, rgba(255,183,77,0.28) 100%);
+}
 .hero-blob {
   position: absolute; border-radius: 50%; pointer-events: none;
 }
