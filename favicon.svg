@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 88 88">
+  <!-- Sun rays -->
+  <g fill="#FFD54F" opacity="0.9">
+    <rect x="41" y="4"  width="6" height="16" rx="3"/>
+    <rect x="41" y="68" width="6" height="16" rx="3"/>
+    <rect x="4"  y="41" width="16" height="6" rx="3"/>
+    <rect x="68" y="41" width="16" height="6" rx="3"/>
+    <rect x="16.6" y="12.0" width="6" height="16" rx="3" transform="rotate(45 19.6 20.0)"/>
+    <rect x="65.4" y="60.0" width="6" height="16" rx="3" transform="rotate(45 68.4 68.0)"/>
+    <rect x="60.0" y="12.0" width="6" height="16" rx="3" transform="rotate(-45 63.0 20.0)"/>
+    <rect x="12.0" y="60.0" width="6" height="16" rx="3" transform="rotate(-45 15.0 68.0)"/>
+  </g>
+  <!-- Sun circle -->
+  <circle cx="44" cy="44" r="26" fill="#FF7043"/>
+  <!-- Letter H -->
+  <text x="44" y="54" text-anchor="middle" font-family="Nunito, Arial, sans-serif" font-size="28" font-weight="900" fill="#FFF5E0" letter-spacing="-1">H</text>
+</svg>
