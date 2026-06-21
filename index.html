@@ -528,6 +528,9 @@ const GAS_URL   = 'https://script.google.com/macros/s/AKfycbxd94TXZuT-G3AUvUOyt_
 const CACHE_KEY = 'hikari_cms_v2';
 const CACHE_TTL = 900000;
 
+if (history.scrollRestoration) history.scrollRestoration = 'manual';
+window.scrollTo(0, 0);
+
 /* ============================================================
    ページローダー
    ============================================================ */
@@ -625,7 +628,7 @@ function applyHero(h) {
     setInterval(function() {
       idx = (idx + 1) % urls.length;
       bg.classList.remove('visible');
-      setTimeout(function() { showPhoto(urls[idx]); }, 600);
+      setTimeout(function() { showPhoto(urls[idx]); }, 1100);
     }, 5000);
   }
 }
