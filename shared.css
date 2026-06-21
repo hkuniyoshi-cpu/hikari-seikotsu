@@ -136,14 +136,9 @@ h3 { font-size: clamp(16px, 2vw, 20px);   font-weight: 700; }
 }
 #page-loader.fade-out { opacity: 0; visibility: hidden; pointer-events: none; }
 .loader-stamp {
-  width: 88px; height: 88px;
+  height: 56px; width: auto; object-fit: contain;
   animation: ld-stamp .7s cubic-bezier(.22,1,.36,1) both,
              ld-pulse 2.4s ease-in-out .7s infinite;
-}
-.loader-name {
-  font-family: 'Nunito', sans-serif; font-weight: 800;
-  font-size: 18px; letter-spacing: .12em; color: var(--ink);
-  animation: ld-rise .5s ease .25s both;
 }
 .loader-dots { display: flex; gap: 7px; animation: ld-rise .5s ease .4s both; }
 .loader-dots span {
