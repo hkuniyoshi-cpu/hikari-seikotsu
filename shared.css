@@ -650,6 +650,7 @@ a.blog-card { color: inherit; text-decoration: none; display: flex; flex-directi
   background: rgba(255,213,79,.06);
   padding-top: 18px;
 }
+.faq-a[hidden] { display: none !important; }
 .faq-a p { font-size: 14.5px; color: var(--ink-soft); line-height: 1.85; flex: 1; }
 
 /* ============================================================
