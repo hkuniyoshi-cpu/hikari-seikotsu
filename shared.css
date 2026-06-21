@@ -193,11 +193,16 @@ h3 { font-size: clamp(16px, 2vw, 20px);   font-weight: 700; }
 }
 .nav-links a:hover { background: rgba(255,112,67,.1); color: var(--coral); }
 .nav-tel {
-  background: var(--coral); color: #fff !important;
+  background: #06C755; color: #fff !important;
   padding: 8px 18px !important; border-radius: 100px !important;
-  box-shadow: 0 3px 12px rgba(255,112,67,.3);
+  box-shadow: 0 3px 12px rgba(6,199,85,.35);
 }
-.nav-tel:hover { background: var(--coral-deep) !important; }
+.nav-tel:hover { background: #05a847 !important; }
+.btn-line {
+  background: #06C755; color: #fff;
+  box-shadow: 0 4px 18px rgba(6,199,85,.35);
+}
+.btn-line:hover { background: #05a847; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(6,199,85,.4); }
 .nav-toggle {
   display: none; flex-direction: column; justify-content: center; gap: 5px;
   width: 36px; height: 36px; background: none; border: none; cursor: pointer;
