@@ -867,11 +867,39 @@ a.blog-card { color: inherit; text-decoration: none; display: flex; flex-directi
   .foryou-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .foryou-card { padding: 22px 14px; }
 
-  /* Reviews */
-  .reviews-grid { grid-template-columns: 1fr; }
+  /* Reviews — horizontal scroll on mobile */
+  .reviews-grid {
+    display: flex; flex-wrap: nowrap;
+    overflow-x: auto; scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 14px; padding: 0 2px 16px;
+    scrollbar-width: none;
+    grid-template-columns: unset;
+    grid-auto-rows: unset;
+  }
+  .reviews-grid::-webkit-scrollbar { display: none; }
+  .review, .review-skel, .review-cta {
+    flex: 0 0 82vw; max-width: 300px;
+    scroll-snap-align: start;
+    height: auto; min-height: 240px;
+  }
+  .reviews-more-wrap { margin-top: 24px; }
 
-  /* Blog wall */
-  .wall { grid-template-columns: 1fr; }
+  /* Blog wall — horizontal scroll on mobile */
+  .wall {
+    display: flex; flex-wrap: nowrap;
+    overflow-x: auto; scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 14px; padding: 0 2px 16px;
+    scrollbar-width: none;
+    grid-template-columns: unset;
+  }
+  .wall::-webkit-scrollbar { display: none; }
+  .blog-card, a.blog-card {
+    flex: 0 0 78vw; max-width: 280px;
+    scroll-snap-align: start;
+    min-width: 0;
+  }
 
   /* Access table */
   .hours-table th, .hours-table td { padding: 8px 2px; font-size: 11px; }
