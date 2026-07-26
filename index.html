@@ -631,13 +631,35 @@ function applyAbout(a) {
   }
 }
 
+const DEFAULT_MENU_IMG = {
+  '骨盤矯正':     './img/menu-01-kotsuban.webp',
+  '骨盤・骨格矯正': './img/menu-01-kotsuban.webp',
+  '産後ケア':     './img/menu-03-ems.webp',
+  '電気治療':     './img/menu-02-hivolt.webp',
+  'ハイボルト治療': './img/menu-02-hivolt.webp',
+  'EMS':          './img/menu-03-ems.webp',
+  'EMS(楽トレ)':   './img/menu-03-ems.webp',
+  '肩こり・腰痛':  './img/menu-04-katakori.webp',
+  '交通事故治療':  './img/menu-05-kotsujiko.webp',
+  'スポーツ障害':  './img/menu-06-sports.webp',
+  'スポーツ外傷':  './img/menu-06-sports.webp',
+};
+const DEFAULT_FORYOU_IMG = {
+  '産後のお体が心配なママへ':   './img/foryou-01-mama.webp',
+  '日中・夜まで通いたい方':     './img/foryou-02-clock.webp',
+  '肩こり・腰痛でお悩みの方':   './img/foryou-02-clock.webp',
+  '交通事故後のむちうちの方':   './img/foryou-03-student.webp',
+  'スポーツのケガでお悩みの学生': './img/foryou-03-student.webp',
+  'お子様連れで通いたい方':     './img/foryou-04-family.webp',
+};
+
 function applyMenu(items) {
   if (!Array.isArray(items) || !items.length) return;
   const grid = document.getElementById('menuGrid');
   if (!grid) return;
   const icons = ['💆','🦴','🤱','💪','🌿','✨','🔧','💛'];
   grid.innerHTML = items.map((m,i) => {
-    const img = driveImg(m.image);
+    const img = driveImg(m.image) || DEFAULT_MENU_IMG[(m.name||'').trim()];
     return `<article class="menu-card reveal">
       ${img ? `<div class="menu-card-img"><img src="${esc(img)}" alt="${esc(m.name)}" loading="lazy"></div>` : `<div class="menu-card-icon">${icons[i%icons.length]}</div>`}
       <div class="menu-card-body">
@@ -672,13 +694,17 @@ function applyForYou(items) {
   const grid = document.getElementById('foryouGrid');
   if (!grid) return;
   const emojis = ['🤱','💆','🦴','😴','💪','🌀','🧘','🏃'];
-  grid.innerHTML = items.map((f,i) => `
-    <div class="foryou-card reveal">
-      <span class="foryou-icon">${emojis[i%emojis.length]}</span>
-      <strong class="foryou-label">${esc(f.label || f.text || f.name || '')}</strong>
+  grid.innerHTML = items.map((f,i) => {
+    const label = (f.label || f.text || f.name || '').trim();
+    const img = driveImg(f.image) || DEFAULT_FORYOU_IMG[label];
+    return `<div class="foryou-card reveal">
+      ${img
+        ? `<div class="foryou-img"><img src="${esc(img)}" alt="${esc(label)}" loading="lazy"></div>`
+        : `<span class="foryou-icon">${emojis[i%emojis.length]}</span>`}
+      <strong class="foryou-label">${esc(label)}</strong>
       <p>${esc(f.caption || '')}</p>
-    </div>
-  `).join('');
+    </div>`;
+  }).join('');
   observe(grid, '.reveal');
 }
 
