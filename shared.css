@@ -448,6 +448,13 @@ h3 { font-size: clamp(16px, 2vw, 20px);   font-weight: 700; }
 }
 .foryou-card:hover { border-color: var(--coral-lt); transform: translateY(-3px); box-shadow: var(--shadow-md); }
 .foryou-icon { font-size: 36px; margin-bottom: 14px; display: block; }
+.foryou-img {
+  width: 96px; height: 96px; margin: 0 auto 14px;
+  border-radius: 50%; overflow: hidden;
+  background: var(--bg-warm);
+  box-shadow: inset 0 0 0 2px rgba(255,112,67,.12);
+}
+.foryou-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .foryou-label { display: block; font-size: 15px; font-weight: 700; color: var(--coral); margin-bottom: 8px; line-height: 1.5; }
 .foryou-card p { font-size: 13.5px; color: var(--ink-soft); line-height: 1.75; }
 
