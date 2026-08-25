@@ -34,12 +34,17 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "MedicalBusiness",
+  "@type": ["MedicalBusiness", "Physiotherapy"],
+  "@id": "https://hikari-seikotsu.search-mania.net/#organization",
   "name": "ひかり整骨院",
-  "alternateName": "HIKARI SEIKOTSUIN",
+  "alternateName": ["HIKARI SEIKOTSUIN", "ひかり整骨院 豊見城本院"],
+  "description": "沖縄県豊見城市の整骨院。産後ケア・骨盤矯正・肩こり・腰痛・交通事故治療（むちうち）に対応。柔道整復師の国家資格保有者が施術。キッズスペース完備で子連れママも安心。",
   "inLanguage": "ja",
   "url": "https://hikari-seikotsu.search-mania.net/",
   "telephone": "098-987-1870",
+  "priceRange": "¥¥",
+  "image": "https://hikari-seikotsu.search-mania.net/ogp.svg",
+  "logo": "https://hikari-seikotsu.search-mania.net/logo.png",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "宜保3-5-8ひまわりハウス101",
@@ -48,13 +53,49 @@
     "postalCode": "901-0233",
     "addressCountry": "JP"
   },
+  "areaServed": [
+    {"@type": "City", "name": "豊見城市"},
+    {"@type": "City", "name": "那覇市"},
+    {"@type": "City", "name": "糸満市"},
+    {"@type": "AdministrativeArea", "name": "南風原町"},
+    {"@type": "AdministrativeArea", "name": "八重瀬町"}
+  ],
+  "medicalSpecialty": [
+    "Physiotherapy",
+    "SportsMedicine",
+    "Musculoskeletal"
+  ],
+  "availableService": [
+    {"@type": "MedicalTherapy", "name": "骨盤矯正"},
+    {"@type": "MedicalTherapy", "name": "産後ケア"},
+    {"@type": "MedicalTherapy", "name": "肩こり・腰痛治療"},
+    {"@type": "MedicalTherapy", "name": "電気治療"},
+    {"@type": "MedicalTherapy", "name": "交通事故治療（むちうち）"},
+    {"@type": "MedicalTherapy", "name": "スポーツ障害治療"}
+  ],
+  "paymentAccepted": ["現金", "健康保険", "自賠責保険"],
+  "currenciesAccepted": "JPY",
   "openingHoursSpecification": [
     {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"20:30"},
     {"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday"],"opens":"09:30","closes":"13:30"}
   ],
+  "subOrganization": {
+    "@type": "MedicalBusiness",
+    "name": "ひかり整骨院 浦添院",
+    "url": "https://hikari-seikotsu-urasoe.search-mania.net/",
+    "telephone": "098-894-3956",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "大平1-35-1",
+      "addressLocality": "浦添市",
+      "addressRegion": "沖縄県",
+      "addressCountry": "JP"
+    }
+  },
   "sameAs": [
     "https://www.instagram.com/hikariseikotuin/",
-    "https://www.facebook.com/hikari.seikotuin1870"
+    "https://www.facebook.com/hikari.seikotuin1870",
+    "https://hikari-seikotsu-urasoe.search-mania.net/"
   ]
 }
 </script>
