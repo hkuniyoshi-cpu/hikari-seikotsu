@@ -798,13 +798,12 @@ function applyBlog(items) {
     // 画像URLは driveImg() で永続化
     const imgUrl = driveImg(b.image);
 
-    // ブログカードのリンクはクエリパラメータ方式で生成
-    // /blog/?post=SLUG 形式 → Cloudflare Pages が /blog/ を静的ファイルとして直配信するため
-    // _redirects の 200 リライトに依存せず確実に動く。
+    // ブログカードのリンクは SSR パス型で生成
+    // /blog/{slug}/ → functions/blog/[slug].js が SSR で完全な HTML を返す（Googlebot 即時インデックス対応）
     // Sheets F列 (b.url) からスラッグを抽出して使用。
     const slugMatch = (b.url || '').match(/\/blog\/([^\/\?#]+)/);
     const postSlug  = slugMatch ? slugMatch[1] : (b.date || '');
-    const blogHref  = postSlug ? `/blog/?post=${postSlug}` : null;
+    const blogHref  = postSlug ? `/blog/${encodeURIComponent(postSlug)}/` : null;
     const tagOpen  = blogHref
       ? `<a href="${blogHref}" class="e blog-card reveal">`
       : `<article class="e blog-card reveal" role="button" tabindex="0" data-idx="${i}">`;
