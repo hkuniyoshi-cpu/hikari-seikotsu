@@ -2,7 +2,8 @@ const GAS_URL = 'https://script.google.com/macros/s/AKfycbxd94TXZuT-G3AUvUOyt_ZG
 
 export async function onRequest(context) {
   try {
-    const upstream = await fetch(GAS_URL + '?sitemap=1', {
+    // v2: cache-bust after GAS _buildSitemap deploy (2026-08-28)
+    const upstream = await fetch(GAS_URL + '?sitemap=1&v=2', {
       redirect: 'follow',
       cf: { cacheTtl: 3600, cacheEverything: true },
     });
